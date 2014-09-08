@@ -4,8 +4,8 @@
     MojioClient = this.MojioClient;
 
     config = {
-        application: '[Your Application Id Here]',
-        secret: '[Your Secret Key Here]',
+        application: '[YOUR APP ID GOES HERE]',
+        secret: '[YOUR SECRET KEY GOES HERE]',
         hostname: 'api.moj.io',
         version: 'v1',
         port: '80'
@@ -13,7 +13,7 @@
 
     mojio_client = new MojioClient(config);
 
-    mojio_client.login('[A Username or Email Here]', '[Password Here]', function (error, result) {
+    mojio_client.login('[YOUR EMAIL OR USERNAME]', '[YOUR PASSWORD]', function (error, result) {
         if (error) {
             return alert("error:" + error + " \n\nMake sure you have put into the code your application id, secret, username and password (in square brackets [] in the code).");
         } else {
