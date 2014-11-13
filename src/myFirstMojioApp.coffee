@@ -25,11 +25,11 @@ $( () ->
 
     if (config.application == '[YOUR APP ID GOES HERE]')
         div = document.getElementById('result')
-        div.innerHTML += 'Mojio Error:: Set your application and secret keys in myFirstApp source code.  <br>'
+        div.innerHTML += 'Mojio Error:: Set your application and secret keys in myFirstMojioApp source code.  <br>'
         return
     if (config.application == '[YOUR REDIRECT URI GOES HERE]')
         div = document.getElementById('result')
-        div.innerHTML += 'Mojio Error:: Set a redirect_uri in myFirstApp source code.  <br>'
+        div.innerHTML += 'Mojio Error:: Set a redirect_uri in myFirstMojioApp source code.  <br>'
         return
 
     mojio_client.token((error, result) ->
