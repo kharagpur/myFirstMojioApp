@@ -1,14 +1,6 @@
 MojioClient = @MojioClient
 
-config = {
-    application: 'f201b929-d28c-415d-9b71-8112532301cb',
-    redirect_uri: 'http://localhost:63342/myFirstMojioApp/index.html'
-    hostname: 'develop.api.moj.io',
-    version: 'v1',
-    port:'443',
-    scheme: 'https'
-}
-###
+# make sure you record your redirect_uri on your production account's app record in the developer center.
 config = {
     application: '[YOUR APP ID GOES HERE]',
     redirect_uri: '[YOUR REDIRECT URI GOES HERE]',
@@ -17,7 +9,6 @@ config = {
     port: '443',
     scheme: 'https',
 };
-###
 
 mojio_client = new MojioClient(config)
 App = mojio_client.model('App')
