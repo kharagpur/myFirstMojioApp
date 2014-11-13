@@ -1,14 +1,6 @@
 MojioClient = @MojioClient
 
-config = {
-    application: 'f201b929-d28c-415d-9b71-8112532301cb',
-    redirect_uri: 'http://localhost:63342/myFirstMojioApp/index.html'
-    hostname: 'develop.api.moj.io',
-    version: 'v1',
-    port:'443',
-    scheme: 'https'
-}
-###
+# make sure you record your redirect_uri on your production account's app record in the developer center.
 config = {
     application: '[YOUR APP ID GOES HERE]',
     redirect_uri: '[YOUR REDIRECT URI GOES HERE]',
@@ -17,7 +9,6 @@ config = {
     port: '443',
     scheme: 'https',
 };
-###
 
 mojio_client = new MojioClient(config)
 App = mojio_client.model('App')
@@ -25,11 +16,11 @@ $( () ->
 
     if (config.application == '[YOUR APP ID GOES HERE]')
         div = document.getElementById('result')
-        div.innerHTML += 'Mojio Error:: Set your application and secret keys in myFirstApp source code.  <br>'
+        div.innerHTML += 'Mojio Error:: Set your application and secret keys in myFirstMojioApp source code.  <br>'
         return
     if (config.application == '[YOUR REDIRECT URI GOES HERE]')
         div = document.getElementById('result')
-        div.innerHTML += 'Mojio Error:: Set a redirect_uri in myFirstApp source code.  <br>'
+        div.innerHTML += 'Mojio Error:: Set a redirect_uri in myFirstMojioApp source code.  <br>'
         return
 
     mojio_client.token((error, result) ->
