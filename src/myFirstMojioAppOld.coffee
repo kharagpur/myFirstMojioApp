@@ -2,12 +2,14 @@ MojioClient = @MojioClient
 
 # make sure you record your redirect_uri on your production account's app record in the developer center.
 config = {
-    application: '087b6073-74a4-4708-aa2f-4899ac414b98',
-    redirect_uri: 'http://localhost:63342/myFirstMojioApp/index.html',
+    application: 'f201b929-d28c-415d-9b71-8112532301cb',
+    secret: 'f0927a0a-386b-4148-be8d-5ffd7468ea6b',
     hostname: 'api.moj.io',
     version: 'v1',
     port: '443',
     scheme: 'https',
+    login: 'anonymous@moj.io',
+    password: 'Password007'
 };
 
 mojio_client = new MojioClient(config)
@@ -18,15 +20,10 @@ $( () ->
         div = document.getElementById('result')
         div.innerHTML += 'Mojio Error:: Set your application and secret keys in myFirstMojioApp source code.  <br>'
         return
-    if (config.application == '[YOUR REDIRECT URI GOES HERE]')
-        div = document.getElementById('result')
-        div.innerHTML += 'Mojio Error:: Set a redirect_uri in myFirstMojioApp source code.  <br>'
-        return
 
-    mojio_client.token((error, result) ->
+    mojio_client.login(config.login, config.password, (error, result) ->
         if (error)
-            console.log("redirecting to login.")
-            mojio_client.authorize(config.redirect_uri)
+            alert("Login Error:"+error)
         else
             alert("Authorization Successful.")
             div = $("#welcome");
@@ -76,7 +73,6 @@ $( () ->
     )
 )
 
-
 buildMojioMap = (mojioLat, mojioLng) ->
     # Initialize Map
     map = new GMaps (
@@ -101,6 +97,6 @@ buildMojioMap = (mojioLat, mojioLng) ->
                 draggable: false,
                 title: 'Current Mojio Location'
             }
-        ),
-        1000
+            ),
+            1000
     )
