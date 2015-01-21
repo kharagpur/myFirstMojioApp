@@ -2,14 +2,14 @@ MojioClient = @MojioClient
 
 # make sure you record your redirect_uri on your production account's app record in the developer center.
 config = {
-    application: 'f201b929-d28c-415d-9b71-8112532301cb',
-    secret: 'f0927a0a-386b-4148-be8d-5ffd7468ea6b',
+    application: 'f201b929-d28c-415d-9b71-8112532301cb', # Replace with your application id
+    secret: 'f0927a0a-386b-4148-be8d-5ffd7468ea6b', # Replace with your secret id
     hostname: 'api.moj.io',
     version: 'v1',
     port: '443',
     scheme: 'https',
-    login: 'anonymous@moj.io',
-    password: 'Password007'
+    login: 'anonymous@moj.io', # Replace with your login
+    password: 'Password007' # Replace with your password
 };
 
 mojio_client = new MojioClient(config)
