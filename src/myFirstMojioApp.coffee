@@ -8,6 +8,7 @@ config = {
     version: 'v1',
     port: '443',
     scheme: 'https',
+	live: false # Set to true to connect to live environment 
 };
 
 mojio_client = new MojioClient(config)
@@ -16,9 +17,9 @@ $( () ->
 
     if (config.application == '[YOUR APP ID GOES HERE]')
         div = document.getElementById('result')
-        div.innerHTML += 'Mojio Error:: Set your application and secret keys in myFirstMojioApp source code.  <br>'
+        div.innerHTML += 'Mojio Error:: Set your application key in myFirstMojioApp source code.  <br>'
         return
-    if (config.application == '[YOUR REDIRECT URI GOES HERE]')
+    if (config.redirect_uri == '[YOUR REDIRECT URI GOES HERE]')
         div = document.getElementById('result')
         div.innerHTML += 'Mojio Error:: Set a redirect_uri in myFirstMojioApp source code.  <br>'
         return
